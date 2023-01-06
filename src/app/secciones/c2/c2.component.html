@@ -1,0 +1,45 @@
+<section class="container">
+    <section class="row justify-content-evenly" [ngStyle]="{'align-content': 'space-between'}">
+        <section class="col col-5 border border-2">
+            <section class="m-3">
+                <div class="form-group">
+                    <input 
+                    type="text" 
+                    placeholder="Ingresa nombre tarea" 
+                    name="tarea" 
+                    class="form-control m-2"
+                    [(ngModel)]="tarea">
+                </div>
+                <div class="form-group">
+                    <textarea  
+                    name="txtArea" 
+                    id="" 
+                    cols="30" 
+                    rows="5" 
+                    placeholder="Ingresa Descripcion" 
+                    name="descripcion" 
+                    class="form-control m-2"
+                    [(ngModel)]="descripcion"></textarea>
+                </div>
+                <div class="form-group">
+                    <button *ngIf="tarea != undefined"
+                    class="btn btn-primary m-2" 
+                    [attr.disabled]="descripcion ? null : true"
+                    (click)="agregar()">guardar</button>
+                </div>
+                
+            </section>
+        </section>
+        <section class="col col-5 border border-2">
+            <section class="m-3">
+                <p>Lista de Tareas</p>
+                <ul [ngStyle]="{'border-radius':'5px','text-align':'center'}">
+                    <li *ngFor="let fila of array">
+                        <span>{{fila.tarea}}: </span>
+                        <span>{{fila.descripcion}}</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </section>
+</section>

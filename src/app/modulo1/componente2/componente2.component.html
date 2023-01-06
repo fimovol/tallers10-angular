@@ -1,0 +1,35 @@
+<h1>registro de datos</h1>
+<form class="w-75 m-5">
+    <div class="form-group">
+      <label for="nom">nombres</label>
+      <input type="email" class="form-control" id="nom" name="nombre" [(ngModel)]="nom" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="ape">apellidos</label>
+      <input type="text" class="form-control" id="ape" name="apellido" [(ngModel)]="ape" placeholder="Password">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="agregar()">Submit</button>
+  </form>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nro</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let fila of datos;let indexOfelement=index;">
+            <td>{{indexOfelement+1}}</td>
+            <td>{{fila.nombre}}</td>
+            <td>{{fila.apellido}}</td>
+            <td>
+                <button 
+                class="btn btn-warning" 
+                value={{indexOfelement}} 
+                (click)="eliminar(indexOfelement)">X</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
