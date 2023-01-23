@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import confetti from 'canvas-confetti'
 @Component({
   selector: 'app-c2',
   templateUrl: './c2.component.html',
@@ -21,6 +21,7 @@ export class C2Component implements OnInit {
   agregar(){
     if(this.tarea!=""){
       this.array.push({'tarea' : this.tarea,'descripcion':this.descripcion})
+      confetti()
     }
   }
 }
